@@ -1,0 +1,101 @@
+#Fazer programa para calculo de IMC
+
+#-----------------------------------------------------------------------------------------
+#Seccao de entradas do dados pesoal
+
+print("******** Ingrese os Siguentes Dados ************")
+nome 		= input('Digite nome                     : ')
+sobrenome 	= input('Digite sobrenome                : ')
+email       = input('Digite email                    : ')
+peso        = input('Digite seu Peso (em quilogramas): ')
+altura      = input('Digite seu Altura (em metros)   : ')
+print("************************************************")
+# -----------------------------------------------------------------------------------------
+# Seccao de calculo de IMC
+x = float(peso)
+y = float(altura)
+z = x / (y ** 2)
+
+r = str(z)
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Seccao de formato de apressentacao resultado
+pessoa = nome + ',' + sobrenome + ',' + email + ',' + peso + ',' + altura + ',' + r[0:3]
+pessoa1 = ['nome', 'sobrenome', 'email', 'peso', 'altura', 'r[0:3]']
+user1 = ['pessoa1', '0001']
+
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Seccao do Tabela de IMC
+if (z < 17):
+    def situacao(imc3):
+                '''Muito abaixo do peso'''
+elif (z >= 17 and z <= 18.49):
+    def situacao(imc3):
+                '''Abaixo do peso'''
+elif (z >= 18.5 and z <= 24.99):
+    def situacao(imc3):
+                '''Peso normal'''
+elif (z >= 25 and z <= 29.99):
+    def situacao(imc3):
+                '''Acima do peso'''
+elif (z >= 30 and z <= 34.99):
+    def situacao(imc3):
+                '''Obesidade I'''
+elif (z >= 35 and z <= 39.99):
+    def situacao(imc3):
+                '''Obesidade II (severa)'''
+else:
+    def situacao(imc3):
+                '''Obesidade III (mórbida)'''
+
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Definicao de mensajes
+def marco(nome):
+            '''Nome, Sobrenome, E-mail, Peso [Kg], Altura [m], IMC :'''
+
+def imc(x, y):
+            '''O cálculo do IMC é feito dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.'''
+
+def tabela(imc2):
+            '''Situação de seu Índice de Massa Corporal :'''
+
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Seccao da Impressao do Resultados
+print('     ' * 2)
+print(imc.__doc__)
+print('     ' * 2)
+print(marco.__doc__)
+print('     ' * 1)
+print(pessoa)
+print('     ' * 2)
+print(tabela.__doc__)
+print('     ' * 1)
+print(situacao.__doc__)
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Seccao da Salvar os dados em arquivo cadastroIMC.csv
+
+arquivo = open('cadastroIMC.csv', 'a')  # a/ open / apertura e creacao de arquivo
+arquivo.write(pessoa + ',' + '\n')
+arquivo.close()
+print("Cadastro de IMC concluido com sucesso")
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# leitor de dados de arquivo cadastroIMC.csv
+
+leitor = open('cadastroIMC.csv', 'r')  # r/ read / leitura
+l = leitor.read()  # le todo conteudo
+print(l)
+leitor.close()
+print('Dados lidos com sucesso.')
+# ------------------------------------------------------------------------------------------
+
